@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>首页</title>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#button").click(function(){
+		$.post("getMessage",{},function(data){
+			alert(data.name);
+			
+		});
+	});
+});
+</script>
+</head>
+<body>
+src/main/resources--->templates--->user-->index.html<br/>
+<p th:text="${mess}" >3333</p><br/>
+span:<span th:text="${mess}"></span><br/>
+<table>
+<tr><td th:text="${mess}"></td></tr>
+</table><br/>
+<button id="button">click me</button><br/><br/>
+手动设置更新--webhook
+<form action="bus/refresh" method="post">
+<input type="text" name="destination" value="customers:**" /><br/> 
+<input type="submit" value="提交" />
+</form>
+</body>
+</html>
